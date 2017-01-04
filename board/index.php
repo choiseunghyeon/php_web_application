@@ -1,6 +1,7 @@
 <?php
 	require_once("../dbconfig.php"); // error 발생시 error를 보내고 그대로 종료
 					 // include 를 사용할 시 보여줄 수 있는 만큼 보여줌
+	echo 'welcom to index.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +27,7 @@
 			</thead>
 			<tbody>
 					<?php
-						$sql = 'select * from board order by no desc';
+						$sql = 'select * from test_board';
 						$result = $db->query($sql);
 						while($row = $result->fetch_assoc())
 						{

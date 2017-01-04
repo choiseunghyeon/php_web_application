@@ -10,7 +10,7 @@
 	<article class="boardArticle">
 		<h3>자유게시판 글쓰기</h3>
 		<div id="boardWrite">
-			<form action="./article_update.php" method="post">
+			<form action="./test_article_update.php" method="post">
 				<table id="boardWrite">
 					<caption class="readHide">자유게시판 글쓰기</caption>
 					<tbody>
