@@ -2,15 +2,13 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>자유게시판 글쓰기 | Kurien's Library</title>
-	<link rel="stylesheet" href="./css/normalize.css" />
-	<link rel="stylesheet" href="./css/board.css" />
+	<title>자유게시판 글쓰기 </title>
 </head>
 <body>
 	<article class="boardArticle">
 		<h3>자유게시판 글쓰기</h3>
 		<div id="boardWrite">
-			<form action="./test_article_update.php" method="post">
+			<form action="./article_update.php" method="post">
 				<table id="boardWrite">
 					<caption class="readHide">자유게시판 글쓰기</caption>
 					<tbody>
