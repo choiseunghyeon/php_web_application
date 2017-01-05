@@ -41,7 +41,7 @@
 					?>
 				<tr>
 					<td class="no"><?php echo $row['no']?></td>
-					<td class="title"><?php echo $row['title']?></td>
+					<td class="title"><?phinsert into test_board ( no,title,content,id,password) values (null,"title","아가리","'id","패스워드")p echo $row['title']?></td>
 					<td class="author"><?php echo $row['id']?></td>
 					<td class="date"><?php echo $row['date']?></td>
 					<td class="hit"><?php echo $row['hit']?></td>
