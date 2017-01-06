@@ -3,7 +3,7 @@
 
   $user_id = $_POST['user_id'];
   $user_pw = $_POST['user_pw'];
-  echo "id".$user_id." pw ".$user_pw;
+  echo "id  ".$user_id." pw ".$user_pw;
   $sql = 'insert into user_info values ("'.$user_id.'","'.$user_pw.'")';
   if(mysqli_query($link,$sql)===true){
     $msg = 'completed';

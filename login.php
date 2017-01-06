@@ -1,11 +1,12 @@
 <?php
   require_once('./dbconfig.php');
-
-
+  session_start(); // 이때 세션 쿠키를 줌
   $sql= "select * from user_info where user_id='{$_POST['user_id']}' and user_pw='{$_POST['user_pw']}'";
   echo $sql;
   $row=mysqli_query($link,$sql)->fetch_array(MYSQLI_ASSOC);
   if($row['user_id']===$_POST['user_id']){
+    $_SESSION['stat']=true; // 해당 세션 쿠키에 대한 값 지정
+    $_SESSION['sid']=$row['user_id'];
     $msg = 'log in';
   } else {
     $msg = 'tt';
@@ -26,10 +27,10 @@
     <p> 비밀번호: <button type="submit">완료</button></p>
   </form>
   <?php
-  if($msg==='log in'){
+  if($_SESSION['stat']===true){
   ?>
     <script>
-    alert("<?= $msg?>");
+    location.replace('/board/list.php');
     </script>
   <?php
   }
