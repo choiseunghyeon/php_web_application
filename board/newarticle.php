@@ -8,7 +8,7 @@
 	<article class="boardArticle">
 		<h3>자유게시판 글쓰기</h3>
 		<div id="boardWrite">
-			<form action="./article_update.php" method="post">
+			<form action="./article_update.php" method="post" enctype="multipart/form-data">
 				<table id="boardWrite">
 					<caption class="readHide">자유게시판 글쓰기</caption>
 					<tbody>
@@ -30,11 +30,12 @@
 						</tr>
 					</tbody>
 				</table>
+					<input name="userfile" type="file" />
 				<div class="btnSet">
 					<button type="submit" class="btnSubmit btn">작성</button>
-					<a href="./board/index.php" class="btnList btn">목록</a>
 				</div>
 			</form>
+			<a href="./board/index.php" class="btnList btn">목록</a>
 		</div>
 	</article>
 </body>

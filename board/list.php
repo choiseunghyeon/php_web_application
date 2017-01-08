@@ -41,6 +41,7 @@
  }
  ?>
 		</table>
+	<a href="./newarticle.php">글 작성</a>
 	</article>
 </body>
 </html>
