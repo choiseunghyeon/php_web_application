@@ -1,9 +1,10 @@
 <?php
 	require_once('../dbconfig.php');	// error 발생시 error를 보내고 그대로 종료
 					 // include 를 사용할 시 보여줄 수 있는 만큼 보여줌
-	session_start();
-	if(!($_SESSION['stat']===true)){
-		Header("Location:http://192.168.219.120/index.php");
+	session_start(); //세션을 줌
+	print_r ($_SESSION);
+	if(!(isset($_SESSION['sid']))){
+		Header("Location:../index.php");
 	}
 	echo 'welcome '.$_SESSION['sid'];
 	$sql = 'select * from test_board';
@@ -28,6 +29,7 @@
 					<th scope="col" class="no">번호</a></th>
 					<th scope="col" class="title">제목</th>
 					<th scope="col" class="author">작성자</th>
+					<th scope="col" class="down">다운로드</th>
 				</tr>
 				<tr>
 <?php
@@ -36,6 +38,7 @@
 ?>
 					<td><?= $row['title']?></td>
 					<td><?= $row['id']?></td>
+					<td><a href="./download.php">다운로드</a></td>
 				</tr>
 <?php
  }

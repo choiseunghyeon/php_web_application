@@ -1,42 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>자유게시판 글쓰기 </title>
-</head>
-<body>
-	<article class="boardArticle">
-		<h3>자유게시판 글쓰기</h3>
-		<div id="boardWrite">
-			<form action="./article_update.php" method="post" enctype="multipart/form-data">
-				<table id="boardWrite">
-					<caption class="readHide">자유게시판 글쓰기</caption>
-					<tbody>
-            <tr>
-              <th scope="row"><label for="title">타이틀</label></th>
-              <td class="id"><input type="text" name="title" id="title"></td>
-            </tr>
-						<tr>
-							<th scope="row"><label for="id">아이디</label></th>
-							<td class="id"><input type="text" name="id" id="id"></td>
-						</tr>
-						<tr>
-							<th scope="row"><label for="password">비밀번호</label></th>
-							<td class="password"><input type="text" name="password" id="password"></td>
-						</tr>
-						<tr>
-              <th scope="row"><label for="content">내용</label></th>
-							<td class="content"><textarea name="content" id="content"></textarea></td>
-						</tr>
-					</tbody>
-				</table>
-					<input name="userfile" type="file" />
-				<div class="btnSet">
-					<button type="submit" class="btnSubmit btn">작성</button>
-				</div>
-			</form>
-			<a href="./board/index.php" class="btnList btn">목록</a>
-		</div>
-	</article>
-</body>
-</html>
+<?php
+  require_once('../dbconfig.php');
+  require_once('./upload.php'); // file upload
+
+  $redirectURL = 'list.php';
+  $uploaddir = '/home/choi/php_web_application/board/uploads'; //file uploads
+  $uploadfile = $uploaddir . basename($_FILES['userfile']['nanme']); //file uploads
+
+  $id=$_POST['id'];
+  $password=$_POST['password'];
+  $title=$_POST['title'];
+  $content=$_POST['content'];
+
+  $sql = 'insert into test_board ( no,title,content,id,password) values (null,"'.$title.'","'.$content.'","'.$id.'","'.$password.'")';
+
+  if(mysqli_query($link,$sql)===true){
+    $result = 'good';
+  } else {
+    $result = 'tt';
+  }
+
+mysqli_close($link);
+//<script> alert('글이 등록되었습니다.')</script> <script> alert('실패 하였습니다.');history.back();</script>
+?>
+<script>
+alert("<?php echo $result?>");
+location.replace("<?php echo $redirectURL?>");
+</script>
